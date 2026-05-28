@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-logo">Kavya Sri P</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <span class="hero-greeting">Hello, I'm</span>
+      <h1 class="hero-name">Your Name</h1>
+      <p class="hero-role">Designer &amp; Developer</p>
+      <p class="hero-description">
+        I craft clean, purposeful digital experiences — turning ideas into
+        elegant, functional products.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+        <a href="#about" class="btn btn-outline">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="avatar-ring">
+        <div class="avatar-placeholder">
+          <span>YN</span>
+        </div>
+      </div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">A little about who I am and what I do</p>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm a passionate designer and developer with a love for creating
+            beautiful, user-centred digital experiences. I blend creativity
+            with technical skill to build products people enjoy using.
+          </p>
+          <p>
+            When I'm not coding, you'll find me exploring design trends,
+            photography, or hiking somewhere with a great view.
+          </p>
+        </div>
+
+        <div class="skills">
+          <h3>Skills</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">HTML / CSS</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">JavaScript</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">UI / UX Design</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:75%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">React</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:70%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-number">3+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">20+</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">15+</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-subtitle">Have a project in mind? Let's talk.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">&#9993;</span>
+            <div>
+              <strong>Email</strong>
+              <p>hello@yourname.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">&#9742;</span>
+            <div>
+              <strong>Phone</strong>
+              <p>+1 (555) 000-0000</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">&#127759;</span>
+            <div>
+              <strong>Location</strong>
+              <p>Your City, Country</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          <p class="form-note" id="form-note"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <span class="footer-logo">YourName</span>
+        <div class="social-links">
+          <a href="#" aria-label="GitHub">GH</a>
+          <a href="#" aria-label="LinkedIn">LI</a>
+          <a href="#" aria-label="Twitter">TW</a>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 YourName. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 80) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+
+      // Navbar scroll shadow
+      document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Form submit feedback
+    function handleSubmit(e) {
+      e.preventDefault();
+      const note = document.getElementById('form-note');
+      note.textContent = 'Message sent! I\'ll get back to you soon.';
+      note.style.color = '#6ee7b7';
+      e.target.reset();
+      setTimeout(() => note.textContent = '', 4000);
+    }
+  </script>
+
+</body>
+</html>
