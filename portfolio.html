@@ -1,0 +1,430 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kavya Sri Padmanaban – Technical & Soft Skill Trainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8F5FF;--bg2:#EDE9FE;--bg3:#C7D2FE;--surface:#FFFFFF;--surface2:#F5F3FF;--primary:#7C3AED;--pri-l:#A78BFA;--pri-d:#5B21B6;--text:#1F2937;--text2:#4B5563;--text3:#9CA3AF;--bord:rgba(124,58,237,.15);--sh:0 4px 20px rgba(124,58,237,.10);--sh-h:0 12px 36px rgba(124,58,237,.20);--card:#FFFFFF;--nav:rgba(248,245,255,.94);}
+[data-theme="dark"]{--bg:#1F1B2E;--bg2:#2A1F3D;--bg3:#312E81;--surface:#2A2A40;--surface2:#32304A;--primary:#A78BFA;--pri-l:#C4B5FD;--pri-d:#7C3AED;--text:#F9FAFB;--text2:#D1D5DB;--text3:#6B7280;--bord:rgba(167,139,250,.18);--sh:0 4px 20px rgba(0,0,0,.35);--sh-h:0 12px 36px rgba(167,139,250,.25);--card:#2A2A40;--nav:rgba(31,27,46,.95);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:"Poppins",system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background .35s,color .35s;}
+#spb{position:fixed;top:0;left:0;z-index:400;height:3px;width:0%;background:linear-gradient(90deg,var(--pri-d),var(--primary),var(--pri-l));border-radius:0 2px 2px 0;transition:width .08s;}
+nav{position:fixed;top:0;width:100%;z-index:300;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;background:var(--nav);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--bord);transition:background .35s;}
+.nav-logo{font-size:.82rem;font-weight:800;color:var(--primary);letter-spacing:4px;text-transform:uppercase;}
+.nav-right{display:flex;align-items:center;}
+.nav-links{display:flex;gap:4px;list-style:none;}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.75rem;font-weight:500;letter-spacing:.5px;padding:7px 14px;border-radius:8px;transition:all .25s;}
+.nav-links a:hover,.nav-links a.active{background:rgba(124,58,237,.10);color:var(--primary);}
+.dm-wrap{display:flex;align-items:center;gap:8px;margin-left:20px;}
+.dm-lbl{font-size:.72rem;font-weight:500;color:var(--text3);}
+.dm-toggle{position:relative;width:48px;height:26px;cursor:pointer;background:var(--bg3);border-radius:30px;border:2px solid var(--bord);transition:background .3s,border-color .3s;flex-shrink:0;}
+.dm-toggle.on{background:var(--primary);border-color:var(--primary);}
+.dm-knob{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.18);transition:transform .3s cubic-bezier(.4,0,.2,1);}
+.dm-toggle.on .dm-knob{transform:translateX(22px);}
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 40%,var(--bg3) 70%,#A5B4FC 100%);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:80px 60px 60px;gap:48px;position:relative;overflow:hidden;transition:background .35s;}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none;}
+.blob1{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(165,180,252,.55),transparent 65%);}
+.blob2{width:350px;height:350px;bottom:-100px;left:-80px;background:radial-gradient(circle,rgba(124,58,237,.20),transparent 65%);}
+.h-left{position:relative;z-index:2;}
+.h-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.22);color:var(--primary);font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:7px 16px;border-radius:30px;margin-bottom:22px;}
+.bdot{width:7px;height:7px;border-radius:50%;background:var(--primary);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.4);}50%{box-shadow:0 0 0 8px rgba(124,58,237,0);}}
+h1.h-name{font-size:3.4rem;font-weight:800;line-height:1.06;letter-spacing:-2px;color:var(--text);margin-bottom:6px;}
+h1.h-name .ac{color:var(--primary);}
+.h-sub{font-size:1rem;font-weight:300;font-style:italic;color:var(--text2);margin-bottom:20px;}
+.tw-row{display:flex;align-items:center;gap:9px;margin-bottom:24px;}
+.tw-label{font-size:.88rem;color:var(--text2);}
+#tw{font-size:.88rem;font-weight:600;color:var(--primary);min-width:190px;}
+#tw::after{content:"|";animation:blink .7s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.h-bio{font-size:.87rem;line-height:1.9;color:var(--text2);max-width:440px;margin-bottom:32px;}
+.h-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px;}
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;font-family:"Poppins",sans-serif;font-size:.82rem;font-weight:600;padding:13px 26px;border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(124,58,237,.35);transition:all .3s ease;}
+.btn-p:hover{background:var(--pri-d);transform:scale(1.05);box-shadow:0 8px 28px rgba(124,58,237,.45);}
+.btn-o{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--primary);color:var(--primary);font-family:"Poppins",sans-serif;font-size:.82rem;font-weight:600;padding:12px 26px;border-radius:12px;text-decoration:none;transition:all .3s ease;background:transparent;}
+.btn-o:hover{background:var(--primary);color:#fff;transform:scale(1.05);}
+.h-contacts{display:flex;flex-wrap:wrap;gap:8px;}
+.h-ctag{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--bord);border-radius:8px;padding:7px 14px;font-size:.73rem;color:var(--text2);box-shadow:var(--sh);transition:all .3s ease;}
+.h-ctag:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px);}
+.h-ctag span{color:var(--primary);}
+.h-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;}
+.photo-stage{position:relative;width:380px;height:380px;display:flex;align-items:center;justify-content:center;}
+.bg-word{position:absolute;top:50%;font-size:2.2rem;font-weight:900;letter-spacing:14px;text-transform:uppercase;white-space:nowrap;pointer-events:none;user-select:none;z-index:3;color:#fff;opacity:0;}
+.bg-word-l{right:calc(50% + 110px);transform:translateY(-50%) translateX(-50px);text-align:right;animation:slideInL 0.9s cubic-bezier(.22,.68,0,1.2) 0.3s forwards;}
+.bg-word-r{left:calc(50% + 110px);transform:translateY(-50%) translateX(50px);text-align:left;animation:slideInR 0.9s cubic-bezier(.22,.68,0,1.2) 0.5s forwards;}
+@keyframes slideInL{to{opacity:1;transform:translateY(-50%) translateX(0);}}
+@keyframes slideInR{to{opacity:1;transform:translateY(-50%) translateX(0);}}
+.deco-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;}
+.dr1{width:250px;height:250px;border:1.5px solid rgba(124,58,237,.18);}
+.dr2{width:295px;height:295px;border:1px dashed rgba(124,58,237,.12);animation:rotRing 30s linear infinite;}
+@keyframes rotRing{to{transform:translate(-50%,-50%) rotate(360deg);}}
+.ring-dot{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:var(--primary);box-shadow:0 0 10px rgba(124,58,237,.5);}
+.photo-wrap{position:relative;z-index:1;}
+.photo-ring{width:210px;height:210px;border-radius:50%;padding:3px;background:linear-gradient(135deg,var(--pri-d),var(--primary),var(--pri-l));box-shadow:0 0 0 10px rgba(124,58,237,.07),0 8px 40px rgba(124,58,237,.25);}
+.photo-inner{width:100%;height:100%;border-radius:50%;background:var(--bg2);padding:3px;}
+.photo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:top;}
+.f-chip{position:absolute;z-index:4;background:var(--surface);border:1px solid var(--bord);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;box-shadow:var(--sh);transition:all .3s ease;}
+.f-chip:hover{transform:translateY(-4px);box-shadow:var(--sh-h);}
+.f-chip .fi{width:34px;height:34px;border-radius:10px;background:rgba(124,58,237,.10);border:1px solid rgba(124,58,237,.20);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.f-chip .fn{font-size:1.1rem;font-weight:800;color:var(--primary);line-height:1;}
+.f-chip .fl{font-size:.58rem;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-top:2px;}
+.fc1{top:22px;left:-10px;}
+.fc2{bottom:36px;left:-10px;}
+.fc3{top:22px;right:-10px;}
+
+.sc-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--text3);font-size:.6rem;letter-spacing:2.5px;text-transform:uppercase;animation:scF 2.4s ease-in-out infinite;z-index:2;}
+.mouse-icon{width:20px;height:32px;border:1.5px solid var(--text3);border-radius:10px;display:flex;justify-content:center;padding-top:5px;}
+.mw{width:2px;height:6px;background:var(--text3);border-radius:2px;animation:mS 1.6s ease-in-out infinite;}
+@keyframes mS{0%{transform:translateY(0);opacity:1}100%{transform:translateY(8px);opacity:0}}
+@keyframes scF{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+section{padding:96px 60px;transition:background .35s;}
+.sec{max-width:1060px;margin:0 auto;}
+.sec-head{margin-bottom:52px;}
+.sec-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.66rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--primary);margin-bottom:10px;}
+.ey-line{width:24px;height:2px;background:var(--primary);border-radius:2px;}
+.sec-title{font-size:2.1rem;font-weight:800;color:var(--text);letter-spacing:-1.5px;margin-bottom:14px;line-height:1.1;}
+.sec-title .ac{color:var(--primary);}
+.sec-bar{width:40px;height:3px;background:linear-gradient(90deg,var(--pri-d),var(--pri-l));border-radius:2px;}
+#about{background:var(--surface);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.about-text{font-size:.88rem;line-height:1.95;color:var(--text2);margin-bottom:16px;}
+.stats-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;}
+.s-card{flex:1;min-width:90px;text-align:center;background:var(--bg2);border:1px solid var(--bord);border-radius:12px;padding:20px 10px;cursor:default;transition:all .3s ease;}
+.s-card:hover{transform:translateY(-6px);box-shadow:var(--sh-h);border-color:var(--primary);}
+.s-card .n{font-size:1.9rem;font-weight:800;color:var(--primary);line-height:1;}
+.s-card .l{font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-top:5px;}
+.sk-label{font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--primary);margin-bottom:14px;font-weight:700;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{background:var(--surface2);border:1.5px solid var(--bord);color:var(--text2);border-radius:30px;padding:6px 16px;font-size:.78rem;font-weight:500;cursor:default;transition:all .3s ease;}
+.chip:hover{border-color:var(--primary);background:rgba(124,58,237,.08);color:var(--primary);transform:scale(1.05);}
+#education{background:var(--bg);}
+.tl{position:relative;padding-left:48px;}
+.tl::before{content:"";position:absolute;left:16px;top:14px;bottom:14px;width:2px;background:linear-gradient(to bottom,var(--primary),rgba(124,58,237,.06));border-radius:2px;}
+.tl-card{position:relative;margin-bottom:22px;background:var(--card);border:1px solid var(--bord);border-radius:16px;padding:28px 32px;box-shadow:var(--sh);transition:all .3s ease;}
+.tl-card::before{content:"";position:absolute;left:-61px;top:30px;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--pri-d),var(--primary));box-shadow:0 0 12px rgba(124,58,237,.4);}
+.tl-card:hover{transform:translateX(7px);box-shadow:var(--sh-h);border-color:rgba(124,58,237,.30);}
+.tl-yr{display:inline-block;font-size:.66rem;font-weight:600;color:var(--primary);background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.20);border-radius:20px;padding:3px 14px;margin-bottom:12px;}
+.tl-deg{font-size:1.05rem;font-weight:700;color:var(--text);}
+.tl-inst{font-size:.84rem;color:var(--primary);margin-top:5px;font-weight:500;}
+.tl-desc{font-size:.83rem;color:var(--text2);margin-top:10px;line-height:1.8;}
+#experience{background:var(--surface);}
+.exp-list{display:flex;flex-direction:column;gap:18px;}
+.exp-card{background:var(--card);border:1px solid var(--bord);border-left:3px solid var(--primary);border-radius:16px;padding:28px 32px;display:grid;grid-template-columns:auto 1fr;gap:0 28px;box-shadow:var(--sh);transition:all .3s ease;}
+.exp-card:hover{transform:translateX(6px);box-shadow:var(--sh-h);}
+.exp-left{display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:4px;}
+.exp-dot{width:13px;height:13px;border-radius:50%;background:linear-gradient(135deg,var(--pri-d),var(--primary));box-shadow:0 0 10px rgba(124,58,237,.35);flex-shrink:0;}
+.exp-line{flex:1;width:2px;min-height:46px;background:linear-gradient(to bottom,var(--primary),transparent);}
+.exp-period{font-size:.65rem;font-weight:500;color:var(--primary);background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.18);border-radius:20px;padding:3px 10px;white-space:nowrap;margin-top:6px;}
+.exp-co{font-size:1.05rem;font-weight:700;color:var(--text);}
+.exp-role{font-size:.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--primary);margin:6px 0 14px;}
+.exp-card ul{padding-left:18px;color:var(--text2);font-size:.85rem;line-height:1.9;}
+.exp-card li{margin-bottom:4px;}
+.exp-subjects{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:.75rem;font-weight:600;color:var(--primary);background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.18);border-radius:20px;padding:4px 14px;}
+.ws-heading{font-size:1.25rem;font-weight:700;color:var(--text);margin:52px 0 22px;}
+.ws-heading .ac{color:var(--primary);}
+.ws-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.ws-card{background:var(--card);border:1px solid var(--bord);border-top:3px solid var(--primary);border-radius:12px;padding:22px 24px;box-shadow:var(--sh);transition:all .3s ease;}
+.ws-card:hover{transform:translateY(-6px);box-shadow:var(--sh-h);}
+.ws-inst{font-size:.88rem;font-weight:700;color:var(--text);}
+.ws-prog{font-size:.74rem;color:var(--primary);margin-top:4px;font-weight:600;}
+.ws-desc{font-size:.79rem;color:var(--text2);margin-top:8px;line-height:1.75;}
+#certifications{background:var(--bg);}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+.cert-card{display:block;position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--bord);box-shadow:var(--sh);background:#fff;text-decoration:none;transition:transform .3s ease,box-shadow .3s ease;aspect-ratio:1.41;}
+.cert-card:hover{transform:translateY(-5px);box-shadow:var(--sh-h);}
+.cert-card iframe{width:100%;height:100%;border:none;display:block;pointer-events:none;}
+.cert-card .cert-hover{position:absolute;inset:0;background:rgba(15,10,40,0);display:flex;align-items:center;justify-content:center;transition:background .3s ease;}
+.cert-card:hover .cert-hover{background:rgba(15,10,40,.55);}
+.cert-hover-label{opacity:0;transform:translateY(8px);transition:all .3s ease;background:#fff;color:var(--primary);font-family:"Poppins",sans-serif;font-size:.80rem;font-weight:700;padding:10px 22px;border-radius:40px;display:flex;align-items:center;gap:7px;box-shadow:0 4px 20px rgba(0,0,0,.25);}
+.cert-card:hover .cert-hover-label{opacity:1;transform:translateY(0);}
+.cert-hover-label svg{width:15px;height:15px;flex-shrink:0;}
+.cert-btn svg{width:14px;height:14px;flex-shrink:0;}
+#contact{background:var(--surface);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:52px;align-items:start;}
+.c-info{display:flex;flex-direction:column;gap:12px;}
+.c-row{display:flex;align-items:flex-start;gap:14px;background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:17px 20px;box-shadow:var(--sh);transition:all .3s ease;}
+.c-row:hover{border-color:var(--primary);transform:translateX(6px);box-shadow:var(--sh-h);}
+.c-icon{width:38px;height:38px;border-radius:10px;flex-shrink:0;background:rgba(124,58,237,.10);border:1.5px solid rgba(124,58,237,.20);display:flex;align-items:center;justify-content:center;font-size:.9rem;}
+.c-lbl{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--primary);font-weight:700;}
+.c-val{font-size:.87rem;color:var(--text2);margin-top:3px;}
+.c-form{display:flex;flex-direction:column;gap:12px;}
+.c-form input,.c-form textarea{background:var(--bg2);border:1.5px solid var(--bord);border-radius:12px;padding:13px 18px;color:var(--text);font-family:"Poppins",sans-serif;font-size:.87rem;outline:none;transition:all .3s ease;}
+.c-form input::placeholder,.c-form textarea::placeholder{color:var(--text3);}
+.c-form input:focus,.c-form textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(124,58,237,.12);}
+.c-form textarea{resize:vertical;min-height:128px;}
+.c-btn{background:var(--primary);color:#fff;border:none;border-radius:12px;padding:14px;font-family:"Poppins",sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(124,58,237,.35);transition:all .3s ease;}
+.c-btn:hover{background:var(--pri-d);transform:scale(1.03);box-shadow:0 8px 28px rgba(124,58,237,.45);}
+footer{background:var(--bg);border-top:1px solid var(--bord);text-align:center;padding:28px;font-size:.73rem;color:var(--text3);transition:background .35s;}
+footer .ac{color:var(--primary);}
+.rv  {opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
+.rv-l{opacity:0;transform:translateX(-20px);transition:opacity .55s ease,transform .55s ease;}
+.rv-r{opacity:0;transform:translateX(20px); transition:opacity .55s ease,transform .55s ease;}
+.rv-s{opacity:0;transform:translateY(16px); transition:opacity .55s ease,transform .55s ease;}
+.rv.in,.rv-l.in,.rv-r.in,.rv-s.in{opacity:1;transform:none;}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:90px 24px 60px;text-align:center;}h1.h-name{font-size:2.6rem;}.tw-row,.h-btns,.h-contacts{justify-content:center;}.h-bio{margin:0 auto 28px;}.f-chip{display:none;}nav{padding:0 20px;}.nav-links{display:none;}section{padding:72px 24px;}.photo-stage{width:280px;height:280px;}.photo-ring{width:170px;height:170px;}.bg-word{font-size:1.2rem;letter-spacing:6px;}.bg-word-l{right:calc(50% + 88px);}.bg-word-r{left:calc(50% + 88px);}}
+@media(max-width:640px){h1.h-name{font-size:2rem;}.about-grid,.contact-grid,.ws-grid{grid-template-columns:1fr;}.exp-card{grid-template-columns:1fr;}.exp-left{flex-direction:row;}.exp-line{display:none;}.sec-title{font-size:1.75rem;}}
+</style>
+</head>
+<body>
+<div id="spb"></div>
+<nav>
+  <div class="nav-logo"></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="dm-wrap">
+      <span class="dm-lbl" id="dmLbl">Dark Mode</span>
+      <div class="dm-toggle" id="dmToggle"><div class="dm-knob"></div></div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="blob blob1"></div><div class="blob blob2"></div>
+  <div class="h-left">
+    <div class="h-badge"><span class="bdot"></span>Technical &amp; Soft Skill Trainer</div>
+    <h1 class="h-name">Kavya Sri<br><span class="ac">Padmanaban</span></h1>
+    <p class="h-sub">Empowering learners through technology &amp; communication</p>
+    <div class="tw-row"><span class="tw-label">I am a</span><span id="tw"></span></div>
+    <p class="h-bio">A dedicated trainer delivering engaging learning experiences in technical subjects and interpersonal skills — developing confident, industry-ready professionals through practical, outcome-focused teaching.</p>
+    <div class="h-btns">
+      <a href="kavyaresume.pdf" download class="btn-p">&#11015;&nbsp; Download CV</a>
+      <a href="#about" class="btn-o">Explore Work &rarr;</a>
+    </div>
+    <div class="h-contacts">
+      <div class="h-ctag"><span>&#9993;</span>kavyasripadmanaban@gmail.com</div>
+      <div class="h-ctag"><span>&#9990;</span>+91 9087591771</div>
+      <div class="h-ctag"><span>&#8982;</span>Coimbatore, Tamil Nadu</div>
+    </div>
+  </div>
+  <div class="h-right">
+    <div class="photo-stage">
+      <div class="bg-word bg-word-l" id="bgLeft">TECHNICAL</div>
+      <div class="bg-word bg-word-r" id="bgRight">TRAINER</div>
+      <div class="deco-ring dr1"></div>
+      <div class="deco-ring dr2"><div class="ring-dot"></div></div>
+      <div class="photo-wrap">
+        <div class="photo-ring"><div class="photo-inner">
+          <img src="kavya4.jpeg" alt="Kavya Sri Padmanaban"/>
+        </div></div>
+      </div>
+      <div class="f-chip fc1"><div class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary)"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12"/></svg></div><div><div class="fn">4+</div><div class="fl">Years Exp</div></div></div>
+      <div class="f-chip fc2"><div class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary)"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><div class="fn">500+</div><div class="fl">Learners</div></div></div>
+      <div class="f-chip fc3"><div class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><div class="fn">15+</div><div class="fl">Workshops</div></div></div>
+    </div>
+  </div>
+  <div class="sc-hint"><div class="mouse-icon"><div class="mw"></div></div>Scroll</div>
+</section>
+
+<section id="about">
+  <div class="sec">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow"><span class="ey-line"></span>Who I Am</div>
+      <h2 class="sec-title">About <span class="ac">Me</span></h2>
+      <div class="sec-bar"></div>
+    </div>
+    <div class="about-grid">
+      <div class="rv-l">
+        <p class="about-text">I am a dedicated Technical &amp; Soft Skills Trainer with a passion for transforming complex concepts into clear, engaging learning experiences. With hands-on industry knowledge and a learner-first approach, I develop confident, industry-ready students.</p>
+        <p class="about-text">I specialise in Python, web technologies, AI tools, and LMS platforms — combined with strong soft skill coaching covering communication, personality development, and professional readiness.</p>
+        <div class="stats-row">
+          <div class="s-card rv-s d1"><div class="n" data-target="4">0</div><div class="l">Years Exp</div></div>
+          <div class="s-card rv-s d2"><div class="n" data-target="500">0</div><div class="l">Learners</div></div>
+          <div class="s-card rv-s d3"><div class="n" data-target="10">0</div><div class="l">Certifications</div></div>
+          <div class="s-card rv-s d4"><div class="n" data-target="15">0</div><div class="l">Workshops</div></div>
+        </div>
+      </div>
+      <div class="rv-r">
+        <div class="sk-label">Core Expertise</div>
+        <div class="chips">
+          <span class="chip">AI &amp; Prompt Engineering</span><span class="chip">Python</span>
+          <span class="chip">HTML &amp; CSS</span><span class="chip">JavaScript &amp; React</span>
+          <span class="chip">Java Core</span><span class="chip">C &amp; C++</span>
+          <span class="chip">Azure Fundamentals</span><span class="chip">UI Path</span>
+          <span class="chip">LMS Platforms</span><span class="chip">Curriculum Design</span>
+          <span class="chip">Soft Skills Coaching</span><span class="chip">Public Speaking</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="sec">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow"><span class="ey-line"></span>Academic Background</div>
+      <h2 class="sec-title">Education</h2>
+      <div class="sec-bar"></div>
+    </div>
+    <div class="tl">
+      <div class="tl-card rv-l d1">
+        <span class="tl-yr">2026 &ndash; 2028 (Pursuing)</span>
+        <div class="tl-deg">Master of Computer Application (MCA)</div>
+        <div class="tl-inst">Bharathidasan University</div>
+        <div class="tl-desc">Currently pursuing MCA with focus on advanced computer science, software engineering, and emerging technologies.</div>
+      </div>
+      <div class="tl-card rv-l d2">
+        <span class="tl-yr">2019 &ndash; 2022</span>
+        <div class="tl-deg">Bachelor of Computer Science (B.Sc)</div>
+        <div class="tl-inst">Nirmala College for Women&rsquo;s, Coimbatore</div>
+        <div class="tl-desc">Graduated with a strong foundation in programming, data structures, algorithms, and software development principles.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="sec">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow"><span class="ey-line"></span>Work History</div>
+      <h2 class="sec-title">Professional <span class="ac">Experience</span></h2>
+      <div class="sec-bar"></div>
+    </div>
+    <div class="exp-list">
+      <div class="exp-card rv d1">
+        <div class="exp-left"><div class="exp-dot"></div><div class="exp-line"></div><div class="exp-period">2023 &ndash; 2025</div></div>
+        <div>
+          <div class="exp-co">KMM Matriculation School, Irugur</div>
+          <div class="exp-role">Trainer &ndash; Technical &amp; S oft Skill Development</div>
+          <ul>
+            <li>Delivered engaging training in Python, web technologies (HTML, CSS, JavaScript), and LMS platforms.</li>
+            <li>Focused on improving students&rsquo; communication, interpersonal, and technical skills.</li>
+            <li>Created outcome-based lesson plans applying learner-centric teaching strategies.</li>
+            <li>Enhanced problem-solving ability, language proficiency, and professional readiness.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-card rv d2">
+        <div class="exp-left"><div class="exp-dot"></div><div class="exp-line"></div><div class="exp-period">2022 &ndash; 2023</div></div>
+        <div>
+          <div class="exp-co">Focus Edumatics Pvt, Coimbatore</div>
+          <div class="exp-role">Online Tutor</div>
+          <ul>
+            <li>Delivered personalised one-on-one online training in Computer Science and programming.</li>
+            <li>Designed learner-focused lesson plans covering data types, control structures, functions, and OOP.</li>
+            <li>Conducted live coding sessions, practical exercises, and assessments.</li>
+            <li>Tracked student progress and adapted teaching methods for continuous skill development.</li>
+          </ul>
+          <div class="exp-subjects">Subjects: AI &nbsp;|&nbsp; C &nbsp;|&nbsp; Java Core &nbsp;|&nbsp; Python</div>
+        </div>
+      </div>
+    </div>
+    <div class="ws-heading rv">Professional Training &amp; <span class="ac">Workshop</span> Experience</div>
+    <div class="ws-grid">
+      <div class="ws-card rv-s d1"><div class="ws-inst">SMS College of Arts and Science, Coimbatore</div><div class="ws-prog">Career Guidance</div><div class="ws-desc">Career guidance and employability training covering career awareness, interview readiness, and industry expectations.</div></div>
+      <div class="ws-card rv-s d2"><div class="ws-inst">St. Paul&rsquo;s College of Arts and Science</div><div class="ws-prog">Soft Skills Development</div><div class="ws-desc">Soft skills training covering communication, personality development, confidence building, and professional etiquette.</div></div>
+      <div class="ws-card rv-s d3"><div class="ws-inst">Shri Nehru Maha Vidyalaya College of Arts &amp; Sciences</div><div class="ws-prog">Generative AI Workshop</div><div class="ws-desc">Hands-on training in Generative AI tools, prompt engineering, ethical AI usage, and real-world applications.</div></div>
+      <div class="ws-card rv-s d4"><div class="ws-inst">Kalaimagal Matric Higher Secondary School</div><div class="ws-prog">Basic Coding Program</div><div class="ws-desc">Taught Python, HTML, CSS, and JavaScript &mdash; guiding students through a mini website project to build logical thinking.</div></div>
+      <div class="ws-card rv-s d1"><div class="ws-inst">Mohamed Sathak Hamid College of Arts and Science for Women</div><div class="ws-prog">Generative AI &amp; Prompt Engineering</div><div class="ws-desc">Delivered hands-on training in Generative AI tools and prompt engineering techniques, focusing on real-world applications, structured prompting, and ethical AI usage.</div></div>
+      <div class="ws-card rv-s d2"><div class="ws-inst">Syed Hameedha Arts and Science College</div><div class="ws-prog">Zoho Books &amp; Communicative English</div><div class="ws-desc">Conducted sessions on Zoho Books for basic accounting workflows along with communicative English training to enhance professional communication and workplace readiness.</div></div>
+      <div class="ws-card rv-s d3"><div class="ws-inst">Mohamed Sathak College of Arts &amp; Science</div><div class="ws-prog">AI &amp; Prompt Engineering</div><div class="ws-desc">Provided practical training in AI concepts and prompt engineering, enabling students to effectively interact with AI tools and apply them in academic and professional contexts.</div></div>
+      <div class="ws-card rv-s d4"><div class="ws-inst">Mohamed Sathak A.J. College of Engineering</div><div class="ws-prog">Python Programming</div><div class="ws-desc">Delivered Python training covering core programming concepts, problem-solving, and hands-on exercises to build a strong foundation in coding and logical thinking.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="sec">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow"><span class="ey-line"></span>Credentials</div>
+      <h2 class="sec-title">Certifications</h2>
+      <div class="sec-bar"></div>
+    </div>
+    <div class="cert-grid">
+
+  <a href="AI tools certificate.pdf" target="_blank" class="cert-card rv-s d1">
+    <iframe src="AI tools certificate.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width" scrolling="no"></iframe>
+    <div class="cert-hover"><span class="cert-hover-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Open Certificate</span></div>
+  </a>
+
+  <a href="certificatehtmlcss.pdf" target="_blank" class="cert-card rv-s d2">
+    <iframe src="certificatehtmlcss.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width" scrolling="no"></iframe>
+    <div class="cert-hover"><span class="cert-hover-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Open Certificate</span></div>
+  </a>
+
+  <a href="certificatehtmlcss.pdf" target="_blank" class="cert-card rv-s d3">
+    <iframe src="certificatehtmlcss.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width" scrolling="no"></iframe>
+    <div class="cert-hover"><span class="cert-hover-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Open Certificate</span></div>
+  </a>
+
+  <a href="KAVYA SRI P.pdf" target="_blank" class="cert-card rv-s d4">
+    <iframe src="KAVYA SRI P.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width" scrolling="no"></iframe>
+    <div class="cert-hover"><span class="cert-hover-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Open Certificate</span></div>
+  </a>
+
+  <a href="excelfor-dataanlysis.pdf" target="_blank" class="cert-card rv-s d1">
+    <iframe src="excelfor-dataanlysis.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width" scrolling="no"></iframe>
+    <div class="cert-hover"><span class="cert-hover-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Open Certificate</span></div>
+  </a>
+
+  <a href="python1 (3).pdf" target="_blank" class="cert-card rv-s d2">
+    <iframe src="python1 (3).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width" scrolling="no"></iframe>
+    <div class="cert-hover"><span class="cert-hover-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Open Certificate</span></div>
+  </a>
+
+</div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="sec">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow"><span class="ey-line"></span>Let&rsquo;s Connect</div>
+      <h2 class="sec-title">Get In <span class="ac">Touch</span></h2>
+      <div class="sec-bar"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="c-info rv-l">
+        <div class="c-row"><div class="c-icon">&#9993;</div><div><div class="c-lbl">Email</div><div class="c-val">kavyasripadmanaban@gmail.com</div></div></div>
+        <div class="c-row"><div class="c-icon">&#9990;</div><div><div class="c-lbl">Phone</div><div class="c-val">+91 9087591771</div></div></div>
+        <div class="c-row"><div class="c-icon">&#8982;</div><div><div class="c-lbl">Address</div><div class="c-val">Ramanathapuram, Coimbatore, Tamil Nadu, India</div></div></div>
+        <div class="c-row"><div class="c-icon">&#127760;</div><div><div class="c-lbl">Languages</div><div class="c-val">English &nbsp;|&nbsp; Tamil</div></div></div>
+      </div>
+      <div class="c-form rv-r">
+        <input type="text" placeholder="Your Name"/>
+        <input type="email" placeholder="Your Email"/>
+        <input type="text" placeholder="Subject"/>
+        <textarea placeholder="Your Message..."></textarea>
+        <button class="c-btn" id="sendBtn">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Crafted with care &nbsp;&bull;&nbsp; &copy; 2026 <span class="ac">Kavya Sri Padmanaban</span> &nbsp;&bull;&nbsp; All rights reserved.</p>
+</footer>
+
+<script>
+const toggle=document.getElementById("dmToggle"),lbl=document.getElementById("dmLbl"),htmlEl=document.documentElement;
+let dark=false;
+const saved=localStorage.getItem("theme");
+if(saved==="dark"){dark=true;htmlEl.setAttribute("data-theme","dark");toggle.classList.add("on");lbl.textContent="Light Mode";}
+toggle.addEventListener("click",()=>{dark=!dark;htmlEl.setAttribute("data-theme",dark?"dark":"light");toggle.classList.toggle("on",dark);lbl.textContent=dark?"Light Mode":"Dark Mode";localStorage.setItem("theme",dark?"dark":"light");});
+window.addEventListener("scroll",()=>{const p=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;document.getElementById("spb").style.width=p+"%";});
+
+const words=["Technical Trainer","Soft Skill Coach","AI Workshop Trainer","Python Educator","Curriculum Designer"];
+let wi=0,ci=0,del=false;const twEl=document.getElementById("tw");
+function type(){const w=words[wi];twEl.textContent=del?w.slice(0,--ci):w.slice(0,++ci);if(!del&&ci===w.length){del=true;return setTimeout(type,1900);}if(del&&ci===0){del=false;wi=(wi+1)%words.length;}setTimeout(type,del?50:85);}
+type();
+function runCounter(el,target,dur=1300){const start=performance.now();(function step(ts){const p=Math.min((ts-start)/dur,1),ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*target)+(p<1?"":"+");if(p<1)requestAnimationFrame(step);else el.textContent=target+"+";})(performance.now());}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");e.target.querySelectorAll(".n[data-target]").forEach(n=>runCounter(n,+n.dataset.target));obs.unobserve(e.target);}});},{threshold:.10});
+document.querySelectorAll(".rv,.rv-l,.rv-r,.rv-s").forEach(el=>obs.observe(el));
+
+document.querySelectorAll("a[href^='#']").forEach(a=>{a.addEventListener("click",e=>{e.preventDefault();document.querySelector(a.getAttribute("href"))?.scrollIntoView({behavior:"smooth"});});});
+const navAs=document.querySelectorAll(".nav-links a"),secs=document.querySelectorAll("section[id]");
+window.addEventListener("scroll",()=>{let cur="";secs.forEach(s=>{if(window.scrollY>=s.offsetTop-90)cur=s.id;});navAs.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+cur));});
+document.getElementById("sendBtn").addEventListener("click",function(){this.textContent="Message Sent!";this.style.background="#059669";setTimeout(()=>{this.textContent="Send Message";this.style.background="";},3000);});
+</script>
+</body>
+</html>
