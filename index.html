@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8"/>
@@ -292,10 +292,27 @@ footer .ac{color:var(--primary);}
     </div>
     <div class="exp-list">
       <div class="exp-card rv d1">
+        <div class="exp-left"><div class="exp-dot"></div><div class="exp-line"></div><div class="exp-period">2026 &ndash; Present</div></div>
+        <div>
+          <div class="exp-co">Beeja Innovative Ventures Pvt Ltd</div>
+          <div class="exp-role">Technical Trainer</div>
+          <ul>
+            <li>Delivering value-added technical training programs for students across Arts &amp; Science and Engineering colleges.</li>
+            <li>Managing and training multiple student batches, adapting teaching methods to suit different learning levels and academic backgrounds.</li>
+            <li>Designing comprehensive lesson plans, training materials, and structured course content aligned with industry standards.</li>
+            <li>Developing and continuously updating curriculum and syllabi to reflect current industry trends and requirements.</li>
+            <li>Simplifying complex technical concepts into practical, easy-to-understand learning modules for improved student comprehension.</li>
+            <li>Conducting interactive sessions, hands-on activities, and assessments to enhance student engagement and retention.</li>
+            <li>Evaluating student performance and providing actionable feedback for continuous improvement and skill development.</li>
+            <li>Collaborating with academic institutions to ensure effective training delivery, measurable outcomes, and training impact.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-card rv d2">
         <div class="exp-left"><div class="exp-dot"></div><div class="exp-line"></div><div class="exp-period">2023 &ndash; 2025</div></div>
         <div>
           <div class="exp-co">KMM Matriculation School, Irugur</div>
-          <div class="exp-role">Trainer &ndash; Technical &amp; S oft Skill Development</div>
+          <div class="exp-role">Trainer &ndash; Technical &amp; Soft Skill Development</div>
           <ul>
             <li>Delivered engaging training in Python, web technologies (HTML, CSS, JavaScript), and LMS platforms.</li>
             <li>Focused on improving students&rsquo; communication, interpersonal, and technical skills.</li>
@@ -304,7 +321,7 @@ footer .ac{color:var(--primary);}
           </ul>
         </div>
       </div>
-      <div class="exp-card rv d2">
+      <div class="exp-card rv d3">
         <div class="exp-left"><div class="exp-dot"></div><div class="exp-line"></div><div class="exp-period">2022 &ndash; 2023</div></div>
         <div>
           <div class="exp-co">Focus Edumatics Pvt, Coimbatore</div>
@@ -391,10 +408,11 @@ footer .ac{color:var(--primary);}
         <div class="c-row"><div class="c-icon">&#127760;</div><div><div class="c-lbl">Languages</div><div class="c-val">English &nbsp;|&nbsp; Tamil</div></div></div>
       </div>
       <div class="c-form rv-r">
-        <input type="text" placeholder="Your Name"/>
-        <input type="email" placeholder="Your Email"/>
-        <input type="text" placeholder="Subject"/>
-        <textarea placeholder="Your Message..."></textarea>
+        <input type="text" id="cf-name" placeholder="Your Name"/>
+        <input type="email" id="cf-email" placeholder="Your Email"/>
+        <input type="text" id="cf-subject" placeholder="Subject"/>
+        <textarea id="cf-message" placeholder="Your Message..."></textarea>
+        <div id="cf-status" style="font-size:.82rem;text-align:center;min-height:20px;"></div>
         <button class="c-btn" id="sendBtn">Send Message</button>
       </div>
     </div>
@@ -405,7 +423,9 @@ footer .ac{color:var(--primary);}
   <p>Crafted with care &nbsp;&bull;&nbsp; &copy; 2026 <span class="ac">Kavya Sri Padmanaban</span> &nbsp;&bull;&nbsp; All rights reserved.</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
+emailjs.init("xX-P4DWH9cXnZg7bb");
 const toggle=document.getElementById("dmToggle"),lbl=document.getElementById("dmLbl"),htmlEl=document.documentElement;
 let dark=false;
 const saved=localStorage.getItem("theme");
@@ -424,7 +444,18 @@ document.querySelectorAll(".rv,.rv-l,.rv-r,.rv-s").forEach(el=>obs.observe(el));
 document.querySelectorAll("a[href^='#']").forEach(a=>{a.addEventListener("click",e=>{e.preventDefault();document.querySelector(a.getAttribute("href"))?.scrollIntoView({behavior:"smooth"});});});
 const navAs=document.querySelectorAll(".nav-links a"),secs=document.querySelectorAll("section[id]");
 window.addEventListener("scroll",()=>{let cur="";secs.forEach(s=>{if(window.scrollY>=s.offsetTop-90)cur=s.id;});navAs.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+cur));});
-document.getElementById("sendBtn").addEventListener("click",function(){this.textContent="Message Sent!";this.style.background="#059669";setTimeout(()=>{this.textContent="Send Message";this.style.background="";},3000);});
+document.getElementById("sendBtn").addEventListener("click",function(){
+  const btn=this;
+  const name=document.getElementById("cf-name").value.trim();
+  const email=document.getElementById("cf-email").value.trim();
+  const subject=document.getElementById("cf-subject").value.trim();
+  const message=document.getElementById("cf-message").value.trim();
+  const status=document.getElementById("cf-status");
+  if(!name||!email||!subject||!message){status.style.color="#EF4444";status.textContent="Please fill in all fields.";return;}
+  btn.disabled=true;btn.textContent="Sending...";btn.style.opacity=".7";status.textContent="";
+  emailjs.send("service_zwst2gt","template_nqpqymq",{to_email:"kavyasripadmanaban@gmail.com",from_name:name,from_email:email,reply_to:email,subject:subject,message:message})
+    .then(()=>{btn.textContent="Message Sent!";btn.style.background="#059669";btn.style.opacity="1";status.style.color="#059669";status.textContent="Thank you! I'll get back to you soon.";document.getElementById("cf-name").value="";document.getElementById("cf-email").value="";document.getElementById("cf-subject").value="";document.getElementById("cf-message").value="";setTimeout(()=>{btn.textContent="Send Message";btn.style.background="";btn.disabled=false;status.textContent="";},4000);})
+    .catch(()=>{btn.textContent="Send Message";btn.style.opacity="1";btn.disabled=false;status.style.color="#EF4444";status.textContent="Failed to send. Please try again or email directly.";}); });
 </script>
 </body>
 </html>
